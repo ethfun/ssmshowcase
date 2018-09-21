@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssm.mapper.lotteryInviteMapper">
+  <resultMap id="BaseResultMap" type="com.ssm.model.lotteryInvite">
+    <constructor>
+      <idArg column="lottery_invite_id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="lottery_draw_id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="user_id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="invited_user_id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="is_send" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="is_assist" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="assist_date" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="is_first" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="login_date" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="create_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="update_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+    </constructor>
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_lottery_invite
+    where lottery_invite_id = #{lotteryInviteId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.ssm.model.lotteryInvite">
+    insert into t_lottery_invite (lottery_invite_id, lottery_draw_id, user_id, 
+      invited_user_id, is_send, is_assist, 
+      assist_date, is_first, login_date, 
+      create_time, update_time)
+    values (#{lotteryInviteId,jdbcType=BIGINT}, #{lotteryDrawId,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, 
+      #{invitedUserId,jdbcType=BIGINT}, #{isSend,jdbcType=TINYINT}, #{isAssist,jdbcType=TINYINT}, 
+      #{assistDate,jdbcType=CHAR}, #{isFirst,jdbcType=TINYINT}, #{loginDate,jdbcType=CHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.ssm.model.lotteryInvite">
+    update t_lottery_invite
+    set lottery_draw_id = #{lotteryDrawId,jdbcType=BIGINT},
+      user_id = #{userId,jdbcType=BIGINT},
+      invited_user_id = #{invitedUserId,jdbcType=BIGINT},
+      is_send = #{isSend,jdbcType=TINYINT},
+      is_assist = #{isAssist,jdbcType=TINYINT},
+      assist_date = #{assistDate,jdbcType=CHAR},
+      is_first = #{isFirst,jdbcType=TINYINT},
+      login_date = #{loginDate,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where lottery_invite_id = #{lotteryInviteId,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select lottery_invite_id, lottery_draw_id, user_id, invited_user_id, is_send, is_assist, 
+    assist_date, is_first, login_date, create_time, update_time
+    from t_lottery_invite
+    where lottery_invite_id = #{lotteryInviteId,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select lottery_invite_id, lottery_draw_id, user_id, invited_user_id, is_send, is_assist, 
+    assist_date, is_first, login_date, create_time, update_time
+    from t_lottery_invite
+  </select>
+</mapper>

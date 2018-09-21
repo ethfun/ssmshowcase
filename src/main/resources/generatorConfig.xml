@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC
+ "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+ "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+  <properties resource="db.properties"/>
+
+  <!--<context id="simple" targetRuntime="MyBatis3">-->
+  <context id="generator" targetRuntime="MyBatis3Simple">
+
+    <plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin" />
+    <plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
+    <plugin type="org.mybatis.generator.plugins.ToStringPlugin" />
+
+    <commentGenerator type="org.mybatis.generator.internal.DefaultCommentGenerator">
+      <property name="suppressAllComments" value="true"/>
+    </commentGenerator>
+
+    <connectionFactory>
+      <property name="driverClass" value="${dataSource.driverClass}"/>
+      <property name="connectionURL" value="${dataSource.url}"/>
+      <property name="userId" value="${dataSource.user}"/>
+      <property name="password" value="${dataSource.password}"/>
+    </connectionFactory>
+
+    <javaModelGenerator targetPackage="com.ssm.model" targetProject="src/main/java">
+      <property name="enableSubPackages" value="true" />
+      <property name="trimStrings" value="true" />
+      <property name="constructorBased" value="true"/>
+    </javaModelGenerator>
+      <!--generator mapper xml file-->
+    <sqlMapGenerator targetPackage="com.ssm.mapper"  targetProject="src/main/resources">
+      <property name="enableSubPackages" value="true" />
+    </sqlMapGenerator>
+      <!--generator mapper interface file-->
+    <javaClientGenerator type="XMLMAPPER" targetPackage="com.ssm.mapper"  targetProject="src/main/java">
+      <property name="enableSubPackages" value="true" />
+    </javaClientGenerator>
+
+    <table tableName="t_lottery_invite" enableCountByExample="true" enableDeleteByExample="true"
+      mapperName="lotteryInviteMapper" domainObjectName="lotteryInvite" />
+
+
+  </context>
+
+</generatorConfiguration>
