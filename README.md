@@ -1,4 +1,6 @@
-# Snippets
+# SSM show case
+## on basis of [spring-mvc-showcase](https://github.com/spring-projects/spring-mvc-showcase) and [mybatis jpetstore-6](https://github.com/mybatis/jpetstore-6)
+## Snippets
 - [maven exclusions](https://maven.apache.org/guides/introduction/introduction-to-optional-and-excludes-dependencies.html)
 - [maven scope: compile(default)/provided/runtime/test/system/import](http://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html)
 - [classpath vs classpath*](https://docs.spring.io/spring/docs/3.0.x/spring-framework-reference/html/resources.html)
