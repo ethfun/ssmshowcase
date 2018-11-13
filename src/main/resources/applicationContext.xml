@@ -4,11 +4,10 @@
   xmlns:tx="http://www.springframework.org/schema/tx"
   xmlns:context="http://www.springframework.org/schema/context"
   xmlns:mybatis="http://mybatis.org/schema/mybatis-spring" xmlns:p="http://www.springframework.org/schema/p"
-  xmlns:mvc="http://www.springframework.org/schema/mvc"
   xsi:schemaLocation="http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
      http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
      http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
-     http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+     http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring.xsd ">
 
   <context:property-placeholder location="classpath*:db.properties"/>
 
@@ -28,7 +27,7 @@
   </bean>
 
   <!-- enable component scanning and autowire (beware that this does not enable mapper scanning!) -->
-  <context:component-scan base-package="com.ssm.service,com.ssm.controller"/>
+  <context:component-scan base-package="com.ssm.service.*.impl"/>
 
   <!-- enable transaction demarcation with annotations -->
   <tx:annotation-driven/>
@@ -42,5 +41,4 @@
   <!-- scan for mappers and let them be autowired -->
   <mybatis:scan base-package="com.ssm.mapper"/>
 
-  <mvc:default-servlet-handler/>
 </beans>

@@ -39,7 +39,11 @@
     </javaClientGenerator>
 
     <table tableName="t_lottery_invite" enableCountByExample="true" enableDeleteByExample="true"
-      mapperName="lotteryInviteMapper" domainObjectName="lotteryInvite" />
+      mapperName="LotteryInviteMapper" domainObjectName="LotteryInvite" >
+      <columnOverride column="is_send" javaType="java.lang.Integer"/>
+      <columnOverride column="is_assist" javaType="java.lang.Integer"/>
+      <columnOverride column="is_first" javaType="java.lang.Integer"/>
+    </table>
 
 
   </context>

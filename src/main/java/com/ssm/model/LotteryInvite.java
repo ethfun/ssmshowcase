@@ -4,10 +4,8 @@ import java.io.Serializable;
 import java.util.Date;
 import lombok.Data;
 
-
 @Data
-public class lotteryInvite implements Serializable {
-
+public class LotteryInvite implements Serializable {
     private Long lotteryInviteId;
 
     private Long lotteryDrawId;
@@ -16,13 +14,13 @@ public class lotteryInvite implements Serializable {
 
     private Long invitedUserId;
 
-    private Byte isSend;
+    private Integer isSend;
 
-    private Byte isAssist;
+    private Integer isAssist;
 
     private String assistDate;
 
-    private Byte isFirst;
+    private Integer isFirst;
 
     private String loginDate;
 
@@ -30,9 +28,9 @@ public class lotteryInvite implements Serializable {
 
     private Date updateTime;
 
-    private static final long serialVersionUID = 6746013492631608468L;
+    private static final long serialVersionUID = 1L;
 
-    public lotteryInvite(Long lotteryInviteId, Long lotteryDrawId, Long userId, Long invitedUserId, Byte isSend, Byte isAssist, String assistDate, Byte isFirst, String loginDate, Date createTime, Date updateTime) {
+    public LotteryInvite(Long lotteryInviteId, Long lotteryDrawId, Long userId, Long invitedUserId, Integer isSend, Integer isAssist, String assistDate, Integer isFirst, String loginDate, Date createTime, Date updateTime) {
         this.lotteryInviteId = lotteryInviteId;
         this.lotteryDrawId = lotteryDrawId;
         this.userId = userId;
@@ -46,10 +44,97 @@ public class lotteryInvite implements Serializable {
         this.updateTime = updateTime;
     }
 
-    public lotteryInvite() {
+    public LotteryInvite() {
         super();
     }
 
+    public Long getLotteryInviteId() {
+        return lotteryInviteId;
+    }
+
+    public void setLotteryInviteId(Long lotteryInviteId) {
+        this.lotteryInviteId = lotteryInviteId;
+    }
+
+    public Long getLotteryDrawId() {
+        return lotteryDrawId;
+    }
+
+    public void setLotteryDrawId(Long lotteryDrawId) {
+        this.lotteryDrawId = lotteryDrawId;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
+    public Long getInvitedUserId() {
+        return invitedUserId;
+    }
+
+    public void setInvitedUserId(Long invitedUserId) {
+        this.invitedUserId = invitedUserId;
+    }
+
+    public Integer getIsSend() {
+        return isSend;
+    }
+
+    public void setIsSend(Integer isSend) {
+        this.isSend = isSend;
+    }
+
+    public Integer getIsAssist() {
+        return isAssist;
+    }
+
+    public void setIsAssist(Integer isAssist) {
+        this.isAssist = isAssist;
+    }
+
+    public String getAssistDate() {
+        return assistDate;
+    }
+
+    public void setAssistDate(String assistDate) {
+        this.assistDate = assistDate == null ? null : assistDate.trim();
+    }
+
+    public Integer getIsFirst() {
+        return isFirst;
+    }
+
+    public void setIsFirst(Integer isFirst) {
+        this.isFirst = isFirst;
+    }
+
+    public String getLoginDate() {
+        return loginDate;
+    }
+
+    public void setLoginDate(String loginDate) {
+        this.loginDate = loginDate == null ? null : loginDate.trim();
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
+    }
 
     @Override
     public boolean equals(Object that) {
@@ -62,7 +147,7 @@ public class lotteryInvite implements Serializable {
         if (getClass() != that.getClass()) {
             return false;
         }
-        lotteryInvite other = (lotteryInvite) that;
+        LotteryInvite other = (LotteryInvite) that;
         return (this.getLotteryInviteId() == null ? other.getLotteryInviteId() == null : this.getLotteryInviteId().equals(other.getLotteryInviteId()))
             && (this.getLotteryDrawId() == null ? other.getLotteryDrawId() == null : this.getLotteryDrawId().equals(other.getLotteryDrawId()))
             && (this.getUserId() == null ? other.getUserId() == null : this.getUserId().equals(other.getUserId()))
